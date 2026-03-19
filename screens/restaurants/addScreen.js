@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  Platform,
-} from "react-native";
+import { View, Text, ScrollView, StyleSheet, Platform } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomButton from "../../components/customButton";
@@ -63,7 +57,7 @@ const AddScreen = ({ navigation }) => {
     if (!validateAllFields()) {
       const errors = restaurant.errors;
       const firstErrorField = Object.keys(errors).find(
-        (key) => errors[key] !== null
+        (key) => errors[key] !== null,
       );
       if (firstErrorField) {
         Toast.show({
@@ -79,7 +73,7 @@ const AddScreen = ({ navigation }) => {
     try {
       const existingData = await AsyncStorage.getItem("restaurants");
       const restaurants = existingData ? JSON.parse(existingData) : [];
-      
+
       const restaurantToSave = {
         key: restaurant.key,
         name: restaurant.name,
@@ -91,7 +85,7 @@ const AddScreen = ({ navigation }) => {
         website: restaurant.website,
         delivery: restaurant.delivery,
       };
-      
+
       restaurants.push(restaurantToSave);
       await AsyncStorage.setItem("restaurants", JSON.stringify(restaurants));
 
@@ -298,6 +292,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 20,
+    gap: 10,
   },
   cancelButton: { backgroundColor: "gray", width: "44%" },
   saveButton: { backgroundColor: "green", width: "44%" },
