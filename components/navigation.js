@@ -1,7 +1,7 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import PeopleScreen from "../screens/people/peopleScreen";
-import DecisionScreen from "../screens/decision/decisionScreen";
+import DecisionScreenNavigation from "../screens/decision/decisionScreenNavigation";
 import RestaurantsScreen from "../screens/restaurants/restaurantsScreen";
 import { Image, Platform } from "react-native";
 import Constants from "expo-constants";
@@ -50,7 +50,7 @@ const Navigation = () => {
               />
             ),
           }}
-          component={DecisionScreen}
+          component={DecisionScreenNavigation}
         />
         <Tab.Screen
           name="Restaurants"
